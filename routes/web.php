@@ -29,6 +29,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('register', Register::class)
         ->name('register');
+
 });
 
 Route::get('password/reset', Email::class)
@@ -51,6 +52,6 @@ Route::middleware('auth')->group(function () {
         ->middleware('signed')
         ->name('verification.verify');
 
-    Route::post('logout', LogoutController::class)
+    Route::match(['get', 'post'], 'logout', LogoutController::class)
         ->name('logout');
 });
