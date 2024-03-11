@@ -8,6 +8,9 @@ use App\Livewire\Auth\Passwords\Email;
 use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
+use App\Livewire\Web\Home;
+use App\Livewire\Web\Ingredients;
+use App\Livewire\Web\Recipes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,37 +24,67 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+/**
+ * Home
+ */
+Route::get('/', Home::class)
+    ->name('home');
 
-Route::middleware('guest')->group(function () {
-    Route::get('login', Login::class)
-        ->name('login');
+/**
+ * Recipes
+ */
+Route::get('recipes', Recipes::class)
+    ->name('recipes');
 
-    Route::get('register', Register::class)
-        ->name('register');
+/**
+ * Ingredientes
+ */
+Route::get('ingredients', Ingredients::class)
+    ->name('ingredients');
 
+/**
+ * Login
+ */
+Route::get('login', Login::class)
+    ->middleware('guest')
+    ->name('login');
+
+/**
+ * Register
+ *
+*/
+/*
+Route::get('register', Register::class)
+    ->middleware('guest')
+    ->name('register');
 });
+*/
 
+/**
+ * Password reset.
+ */
+Route::get('password/reset/{token}', Reset::class)
+    ->name('password.reset');
 Route::get('password/reset', Email::class)
     ->name('password.request');
 
-Route::get('password/reset/{token}', Reset::class)
-    ->name('password.reset');
-
-Route::middleware('auth')->group(function () {
-    Route::get('email/verify', Verify::class)
-        ->middleware('throttle:6,1')
-        ->name('verification.notice');
-
-    Route::get('password/confirm', Confirm::class)
-        ->name('password.confirm');
-});
-
+/**
+ * Auth routes.
+ */
 Route::middleware('auth')->group(function () {
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
         ->middleware('signed')
         ->name('verification.verify');
-
-    Route::match(['get', 'post'], 'logout', LogoutController::class)
-        ->name('logout');
+    Route::get('email/verify', Verify::class)
+        ->middleware('throttle:6,1')
+        ->name('verification.notice');
+    Route::get('password/confirm', Confirm::class)
+        ->name('password.confirm');
 });
+
+/**
+ * Logout
+ */
+Route::match(['get', 'post'], 'logout', LogoutController::class)
+    ->middleware('auth')
+    ->name('logout');

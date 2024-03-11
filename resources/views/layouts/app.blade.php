@@ -1,9 +1,19 @@
 @extends('layouts.base')
 
 @section('body')
-    @yield('content')
-    
-    @isset($slot)
-        {{ $slot }}
-    @endisset
+    <div class="min-h-full">
+        <x-navigation/>
+
+        <div class="py-10">
+            <main>
+                <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    @yield('content')
+
+                    @isset($slot)
+                        {{ $slot }}
+                    @endisset
+                </div>
+            </main>
+        </div>
+    </div>
 @endsection
