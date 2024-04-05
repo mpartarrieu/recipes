@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Web\RecipesController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
@@ -9,8 +10,6 @@ use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use App\Livewire\Web\Home;
-use App\Livewire\Web\Ingredients;
-use App\Livewire\Web\Recipes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,22 +24,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
+ * Recipes
+ */
+Route::controller(RecipesController::class)->group(function () {
+    Route::get('/recetas/{recipe}/{slug}', 'show')
+        ->name('recipe');
+});
+
+
+/**
  * Home
  */
 Route::get('/', Home::class)
     ->name('home');
-
-/**
- * Recipes
- */
-Route::get('recipes', Recipes::class)
-    ->name('recipes');
-
-/**
- * Ingredientes
- */
-Route::get('ingredients', Ingredients::class)
-    ->name('ingredients');
 
 /**
  * Login

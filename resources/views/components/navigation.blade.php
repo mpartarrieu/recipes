@@ -4,7 +4,7 @@
     }"
 >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 justify-between">
+        <div class="flex h-16 justify-between items-center">
             <div class="flex">
                 <div class="flex flex-shrink-0 items-center">
                     <a href="{{ route('home') }}">
@@ -50,11 +50,14 @@
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
                         >
+                            <a href="{{ route('filament.admin.resources.recipes.index') }}" class="block px-4 py-2 text-sm text-gray-700">
+                                {{ __('Añadir receta') }}
+                            </a>
                             <a href="{{ route('logout') }}" @class([
                                 'bg-gray-100' => Route::is('logout'),
                                 'block px-4 py-2 text-sm text-gray-700' => true,
                             ])>
-                                {{ __('Sign out') }}
+                                {{ __('Log out') }}
                             </a>
                         </div>
                     </div>
@@ -116,6 +119,13 @@
                 </a>
             @endforeach
             @auth
+                <a href="{{ route('filament.admin.resources.recipes.index') }}" @class([
+                    'border-indigo-500 bg-indigo-50 text-indigo-700' => Route::is('filament.admin.resources.recipes.index'),
+                    'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800' => ! Route::is('filament.admin.resources.recipes.index'),
+                    'block border-l-4 py-2 pl-3 pr-4 text-base font-medium' => true,
+                ])>
+                    {{ __('Añadir receta') }}
+                </a>
                 <a href="{{ route('logout') }}" @class([
                     'border-indigo-500 bg-indigo-50 text-indigo-700' => Route::is('logout'),
                     'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800' => ! Route::is('logout'),
