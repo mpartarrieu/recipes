@@ -38,9 +38,11 @@ class Home extends Component
         }
 
         if ($ingredients = Arr::get($this->filters, 'ingredients')) {
-            $query->whereHas('ingredients', function (Builder $query) use ($ingredients) {
-                $query->whereIn('ingredients.id', $ingredients);
-            });
+            foreach ($ingredients as $ingredientId) {
+                $query->whereHas('ingredients', function (Builder $query) use ($ingredientId) {
+                    $query->where('ingredients.id', $ingredientId);
+                });
+            }
         }
 
         return view('livewire.web.home')
