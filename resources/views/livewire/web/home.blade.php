@@ -32,7 +32,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5" />
             </svg>
             <input type="search" x-model="ingredientesSearch" class="block h-full w-full py-3 pl-10 pr-2 text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded" placeholder="{{ __('Buscar ingrediente') }}..." x-on:focus="ingredientesOpen = true" />
-            <div class="absolute left-0 right-0 z-10 mt-1 w-full"
+            <div class="absolute left-0 right-0 z-10 mt-1 w-full bg-white"
                 x-show="ingredientesOpen" 
                 x-transition:enter="transition ease-out duration-100"
                 x-transition:enter-start="transform opacity-0 scale-95"
