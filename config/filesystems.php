@@ -47,7 +47,7 @@ return [
         'filament' => [
             'driver' => 'local',
             'root' => storage_path('app/public/filament'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/storage/filament',
             'visibility' => 'public',
             'throw' => false,
         ],

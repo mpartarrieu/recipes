@@ -85,7 +85,7 @@
             @foreach ($recipes as $recipe)
                 <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-indigo-50 text-center shadow-md">
                     <div class="flex flex-1 flex-col p-8">
-                        <img src="{{ $recipe->image }}" class="h-32 object-cover rounded">
+                        <img src="{{ $recipe->image_url }}" class="h-32 object-cover rounded">
                         <h3 class="mt-6 font-medium text-gray-900">{{ $recipe->name }}</h3>
                         <dl class="mt-1 flex flex-grow flex-col justify-between">
                             <dd class="text-sm text-gray-500">{{ $recipe->ingredients->implode('name', ', ') }}</dd>

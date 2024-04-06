@@ -3,7 +3,7 @@
 @section('content')
     <div class="grid items-start grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="w-full lg:sticky top-0 sm:flex gap-2">
-            <img src="{{ $recipe->image }}" class="w-full rounded object-cover" />
+            <img src="{{ $recipe->image_url }}" class="w-full rounded object-cover" />
         </div>
         <div>
             <h1 class="text-2xl font-extrabold text-gray-800">
