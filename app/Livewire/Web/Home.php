@@ -31,7 +31,7 @@ class Home extends Component
 
     public function render(): View
     {
-        $query = Recipe::with('ingredients');
+        $query = Recipe::with('ingredients')->orderBy('name');
 
         if ($search = Arr::get($this->filters, 'search')) {
             $query->where('name', 'like', "%{$search}%");
