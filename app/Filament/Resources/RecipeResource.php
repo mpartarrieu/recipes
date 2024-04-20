@@ -57,6 +57,7 @@ class RecipeResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('name')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

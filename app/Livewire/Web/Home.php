@@ -53,6 +53,11 @@ class Home extends Component
                     ]);
     }
 
+    public function updated(string $field, mixed $value)
+    {
+        $this->resetPage();
+    }
+
     public function toggleIngredient(int $ingredientId)
     {
         $ingredients = $this->filters['ingredients'];
@@ -64,5 +69,7 @@ class Home extends Component
         }
 
         $this->filters['ingredients'] = array_values($ingredients);
+
+        $this->resetPage();
     }
 }
