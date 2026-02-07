@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\IngredientResource\Pages;
+namespace App\Filament\Resources\Ingredients\Pages;
 
-use App\Filament\Resources\IngredientResource;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\Ingredients\Ingredients\IngredientResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 
@@ -13,7 +14,7 @@ class ManageIngredients extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

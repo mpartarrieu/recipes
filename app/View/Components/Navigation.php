@@ -21,7 +21,7 @@ class Navigation extends Component
     {
         /*
             $this->nav[] = [
-                'route' => 'filament.admin.resources.recipes.index',
+                'route' => 'filament.admin.resources.recipes.recipes.index',
                 'label' => __('Añadir receta'),
             ];
         */

@@ -50,7 +50,7 @@
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
                         >
-                            <a href="{{ route('filament.admin.resources.recipes.index') }}" class="block px-4 py-2 text-sm text-gray-700">
+                            <a href="{{ route('filament.admin.resources.recipes.recipes.index') }}" class="block px-4 py-2 text-sm text-gray-700">
                                 {{ __('Añadir receta') }}
                             </a>
                             <a href="{{ route('logout') }}" @class([
@@ -119,9 +119,9 @@
                 </a>
             @endforeach
             @auth
-                <a href="{{ route('filament.admin.resources.recipes.index') }}" @class([
-                    'border-indigo-500 bg-indigo-50 text-indigo-700' => Route::is('filament.admin.resources.recipes.index'),
-                    'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800' => ! Route::is('filament.admin.resources.recipes.index'),
+                <a href="{{ route('filament.admin.resources.recipes.recipes.index') }}" @class([
+                    'border-indigo-500 bg-indigo-50 text-indigo-700' => Route::is('filament.admin.resources.recipes.recipes.index'),
+                    'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800' => ! Route::is('filament.admin.resources.recipes.recipes.index'),
                     'block border-l-4 py-2 pl-3 pr-4 text-base font-medium' => true,
                 ])>
                     {{ __('Añadir receta') }}

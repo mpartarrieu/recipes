@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\RecipeResource\Pages;
+namespace App\Filament\Resources\Recipes\Pages;
 
-use App\Filament\Resources\RecipeResource;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\Recipes\Recipes\RecipeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -13,7 +14,7 @@ class ListRecipes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }
