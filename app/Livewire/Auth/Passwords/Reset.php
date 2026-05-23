@@ -4,7 +4,6 @@ namespace App\Livewire\Auth\Passwords;
 
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\Auth\StatefulGuard;
-use App\Providers\RouteServiceProvider;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +25,7 @@ class Reset extends Component
     /** @var string */
     public $passwordConfirmation;
 
-    public function mount($token)
+    public function mount(?string $token)
     {
         $this->email = request()->query('email', '');
         $this->token = $token;

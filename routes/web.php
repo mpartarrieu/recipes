@@ -41,7 +41,7 @@ Route::get('/', Home::class)
 /**
  * Login
  */
-Route::get('login', Login::class)
+Route::livewire('login', Login::class)
     ->middleware('guest')
     ->name('login');
 
@@ -50,7 +50,7 @@ Route::get('login', Login::class)
  *
 */
 /*
-Route::get('register', Register::class)
+Route::livewire('register', Register::class)
     ->middleware('guest')
     ->name('register');
 });
@@ -59,9 +59,9 @@ Route::get('register', Register::class)
 /**
  * Password reset.
  */
-Route::get('password/reset/{token}', Reset::class)
+Route::livewire('password/reset/{token}', Reset::class)
     ->name('password.reset');
-Route::get('password/reset', Email::class)
+Route::livewire('password/reset', Email::class)
     ->name('password.request');
 
 /**
@@ -71,10 +71,10 @@ Route::middleware('auth')->group(function () {
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
         ->middleware('signed')
         ->name('verification.verify');
-    Route::get('email/verify', Verify::class)
+    Route::livewire('email/verify', Verify::class)
         ->middleware('throttle:6,1')
         ->name('verification.notice');
-    Route::get('password/confirm', Confirm::class)
+    Route::livewire('password/confirm', Confirm::class)
         ->name('password.confirm');
 });
 

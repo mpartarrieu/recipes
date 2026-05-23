@@ -5,7 +5,6 @@ namespace App\Livewire\Web;
 use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -24,7 +23,7 @@ class Home extends Component
 
     public array $ingredients = [];
 
-    public function mount(Request $request): void
+    public function mount(): void
     {
         $this->ingredients = Ingredient::select('id', 'name as label')->orderBy('name')->get()->toArray();
     }
