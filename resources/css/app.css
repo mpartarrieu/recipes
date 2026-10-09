@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+    --font-sans: 'Inter var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/**
+ * Tailwind v4 changed the default border color to `currentColor`. These
+ * styles keep the v3 default (gray-200) so borders look the same as before.
+ */
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+
+    /**
+     * Tailwind v4 uses `cursor: default` on buttons; keep the v3 pointer.
+     */
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
+    }
+
+    /**
+     * Remove the default box-shadow for invalid elements to prevent
+     * inputs in Livewire components showing with a
+     * red border by default in Firefox.
+     *
+     * See: https://github.com/laravel-frontend-presets/tall/issues/7
+     */
+    input:invalid,
+    textarea:invalid,
+    select:invalid {
+        box-shadow: none;
+    }
+}
+
+[x-cloak] {
+    display: none;
+}

@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between items-center">
             <div class="flex">
-                <div class="flex flex-shrink-0 items-center">
+                <div class="flex shrink-0 items-center">
                     <a href="{{ route('home') }}">
                         <x-logo class="h-8 w-8 text-indigo-600" />
                     </a>
@@ -32,7 +32,7 @@
                         x-on:click.away="show = false"
                     >
                         <div>
-                            <button type="button" class="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true"
+                            <button type="button" class="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true"
                                 x-on:click="show = !show"
                             >
                                 <span class="absolute -inset-1.5"></span>
@@ -40,7 +40,7 @@
                                 <img class="h-8 w-8 rounded-full" src="https://gravatar.com/avatar/{{ hash('sha256', auth()->user()->email) }}" alt="">
                             </button>
                         </div>
-                        <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"
+                        <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"
                             x-cloak
                             x-show="show" 
                             x-transition:enter="transition ease-out duration-200"
@@ -84,7 +84,7 @@
             @endif
             <div class="-mr-2 flex items-center sm:hidden">
                 <!-- Mobile menu button -->
-                <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-controls="mobile-menu" aria-expanded="false"
+                <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-controls="mobile-menu" aria-expanded="false"
                         x-on:click="showMobile = !showMobile"
                 >
                     <span class="absolute -inset-0.5"></span>
